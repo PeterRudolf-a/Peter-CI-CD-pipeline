@@ -9,7 +9,12 @@ export default async (modelName: "Question", collectionName: string) => {
       throw new Error(`Model ${modelName} not found`);
     }
 
-    // Proceed with the rest of the code if the model exists
+    // Ensure that model.db and model.db.db are defined
+    if (!model.db || !model.db.db) {
+      throw new Error(`Database connection for model ${modelName} is not defined`);
+    }
+
+    // Proceed with the rest of the code if the model and its db connection exist
     let modelExists = await model.db.db.listCollections({
       name: collectionName
     }).toArray();

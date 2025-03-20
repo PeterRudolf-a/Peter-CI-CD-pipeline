@@ -9,7 +9,8 @@ export default defineConfig({
 		istanbul({
 			exclude: ["node_modules", "dist", "test", "cypress"],
 			cypress: true,
-			requireEnv: false
+			requireEnv: false,
+      forceBuildInstrument: true
 		}),
 	],
   test: {

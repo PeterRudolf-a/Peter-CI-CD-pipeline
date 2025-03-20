@@ -7,7 +7,7 @@ export default defineConfig({
 			framework: "react",
 			bundler: "vite"
 		},
-		specPattern: "cypress/component/**/*.cy.{js,ts,jsx,tsx}",
+		specPattern: ["cypress/component/**/*.cy.{js,ts,jsx,tsx}", "../../client/src/components/Quiz/**/*.cy.{js,ts,jsx,tsx}"],
 		setupNodeEvents(on, config) {
 			coverageTask(on, config);
 

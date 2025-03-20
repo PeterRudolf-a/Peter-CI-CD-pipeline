@@ -1,22 +1,27 @@
-import { defineConfig } from 'cypress';
-import viteConfig from './vite.config';
+import { defineConfig } from "cypress";
+import coverageTask from "@cypress/code-coverage/task";
 
 export default defineConfig({
-  component: {
-    port: 5173,
-    devServer: {
-      framework: 'react',
-      bundler: 'vite',
-      viteConfig,
-    },
-    specPattern: "cypress/component/**/*.cy.{js,ts,jsx,tsx}",
-  },
+	component: {
+		devServer: {
+			framework: "react",
+			bundler: "vite"
+		},
+		specPattern: "cypress/component/**/*.cy.{js,ts,jsx,tsx}",
+		setupNodeEvents(on, config) {
+			coverageTask(on, config);
 
-  e2e: {
-    baseUrl: 'http://localhost:3001',
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-    specPattern: "cypress/e2e/**/*.cy.{js,ts,jsx,tsx}",
-  },
+			return config;
+		},
+	},
+
+	e2e: {
+		baseUrl: "http://localhost:3000",
+		setupNodeEvents(on, config) {
+			// implement node event listeners here
+			coverageTask(on, config);
+
+			return config;
+		},
+	},
 });

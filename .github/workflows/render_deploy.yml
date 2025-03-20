@@ -17,12 +17,22 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version: 20.x
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
+      - name: Start Server
+        run: npm run start &
+        env:
+          NODE_ENV: test
+        # The "&" runs the server in the background
+
+      - name: Wait for Server to Start
+        run: npx wait-on http://localhost:3000
+        # This waits until the server is ready before running tests
+
+      - name: Run Cypress Tests
         run: npm run test
 
       - name: Deploy to Render
@@ -31,3 +41,4 @@ jobs:
         run: |
           echo "Triggering Render deployment..."
           curl "$deploy_url"
+          echo "Render deployment triggered."

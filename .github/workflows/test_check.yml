@@ -7,34 +7,26 @@ on:
 
 jobs:
   test:
-    name: Checking Tests
+    name: Run Tests
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version: '22'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      - name: Build App
-        run: npm run build
+      - name: Start Server and Client
+        run: npm run develop &
 
-      - name: Start Server (Background)
-        run: npm run start &
-        env:
-          NODE_ENV: test
+      - name: Wait for Server to be Ready
+        run: npx wait-on http://localhost:3000
 
-      - name: Wait for Server to Start
-        run: |
-          npx wait-on --timeout 60000 --interval 5000 http://localhost:3000
-
-      - name: Run Cypress Component Tests
-        run: npm run test:component
-        env:
-          NODE_OPTIONS: "--loader ts-node/esm"
+      - name: Run Tests
+        run: npm run test-component

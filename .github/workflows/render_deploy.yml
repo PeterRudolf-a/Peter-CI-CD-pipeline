@@ -29,4 +29,4 @@ jobs:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
           echo "Triggering Render deployment..."
-          curl -X POST "$deploy_url"
+          curl "$deploy_url"

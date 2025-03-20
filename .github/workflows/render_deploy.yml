@@ -4,18 +4,20 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  ci:
+  deploy:
     name: Deploy To Render
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
 
       - name: Install dependencies
         run: npm install
@@ -24,7 +26,6 @@ jobs:
         run: npm run test
 
       - name: Deploy to Render
-        if: github.ref == 'refs/heads/main'
         env:
           deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |

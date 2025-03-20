@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 21.x
+          node-version: 22.x
 
       - name: Install dependencies
         run: npm install
@@ -26,5 +26,5 @@ jobs:
       - name: Build App
         run: npm run build
 
-      - name: Run Cypress component tests
-        run: npm run test
+      - name: Run Cypress Component Tests
+        run: npm run test:component

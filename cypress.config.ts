@@ -10,6 +10,13 @@ export default defineConfig({
       viteConfig,
     },
     specPattern: "cypress/component/**/*.cy.{js,ts,jsx,tsx}",
+    reporter: 'mochawesome',
+    reporterOptions: {
+      reportDir: 'cypress/results',
+      overwrite: true,
+      html: true,
+      json: true
+    }
   },
 
   e2e: {

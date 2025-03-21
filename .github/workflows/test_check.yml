@@ -30,22 +30,12 @@ jobs:
 
       - name: Run Cypress Tests
         run: npm run test-component
-        continue-on-error: true
 
-      - name: Generate Cypress Summary
-        run: |
-          echo "## Cypress Results" >> $GITHUB_STEP_SUMMARY
-          PASSED=$(grep -o '"pass": [0-9]*' results/junit-*.xml | awk '{print $2}')
-          FAILED=$(grep -o '"fail": [0-9]*' results/junit-*.xml | awk '{print $2}')
-          SKIPPED=$(grep -o '"skipped": [0-9]*' results/junit-*.xml | awk '{print $2}')
-          DURATION=$(grep -o '"duration": [0-9]*' results/junit-*.xml | awk '{print $2}')
-          
-          echo "| Result | Passed | Failed | Skipped | Duration |" >> $GITHUB_STEP_SUMMARY
-          echo "|--------|--------|--------|---------|----------|" >> $GITHUB_STEP_SUMMARY
-          echo "| ✅ Passing | $PASSED | ❌ $FAILED | ⏭️ $SKIPPED | ⏱️ ${DURATION}ms |" >> $GITHUB_STEP_SUMMARY
-
-      - name: Upload Cypress Test Artifacts
+      - name: Upload Cypress Mochawesome Report
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-results
-          path: results/
+          name: cypress-report
+          path: cypress/results/
+
+      - name: Display Cypress Test Summary
+        run: cat cypress/results/mochawesome.json | jq .

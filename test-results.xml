@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.864" tests="2" failures="0">
+  <testsuite name="Root Suite" timestamp="2025-03-21T00:41:56" tests="0" file="cypress\component\Quiz.cy.jsx" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Quiz Component" timestamp="2025-03-21T00:41:56" tests="2" time="0.852" failures="0">
+    <testcase name="Quiz Component should answer questions and complete the quiz" time="0.404" classname="should answer questions and complete the quiz">
+    </testcase>
+    <testcase name="Quiz Component should restart the quiz after completion" time="0.403" classname="should restart the quiz after completion">
+    </testcase>
+  </testsuite>
+</testsuites>

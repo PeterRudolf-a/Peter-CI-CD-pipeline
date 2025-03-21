@@ -31,11 +31,11 @@ jobs:
       - name: Run Cypress Tests
         run: npm run test-component
 
-      - name: Upload Cypress Mochawesome Report
+      - name: Generate Cypress Test Report
+        run: node scripts/cypress-summary.js # ✅ Extract test results
+
+      - name: Upload Cypress Test Report
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-report
+          name: cypress-test-results
           path: cypress/results/
-
-      - name: Display Cypress Test Summary
-        run: cat cypress/results/mochawesome.json | jq .

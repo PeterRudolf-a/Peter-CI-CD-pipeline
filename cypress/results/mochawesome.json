@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-21T00:53:26.725Z",
+    "end": "2025-03-21T00:53:27.694Z",
+    "duration": 969,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f7124bb2-1752-4844-85de-a5159ff8f6e9",
+      "title": "",
+      "fullFile": "cypress\\component\\Quiz.cy.jsx",
+      "file": "cypress\\component\\Quiz.cy.jsx",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cf2ac7ca-53e4-439a-ba8f-9a698472d5f7",
+          "title": "Quiz Component",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should answer questions and complete the quiz",
+              "fullTitle": "Quiz Component should answer questions and complete the quiz",
+              "timedOut": null,
+              "duration": 470,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "mount(/* @__PURE__ */ jsxDEV(Quiz, {}, void 0, false, {\n  fileName: \"C:/Users/Home/bootcamp/Projects/Peter-CI-CD-pipeline/cypress/component/Quiz.cy.jsx\",\n  lineNumber: 23,\n  columnNumber: 11\n}, this));\ncy.get(\"button\").contains(\"Start Quiz\").click();\ncy.get(\"button\").contains(\"1\").click();\ncy.get(\".alert-success\").should(\"be.visible\").and(\"contain\", \"Your score\");",
+              "err": {},
+              "uuid": "da97f247-d1b5-4325-853d-f4f3aa1d5672",
+              "parentUUID": "cf2ac7ca-53e4-439a-ba8f-9a698472d5f7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should restart the quiz after completion",
+              "fullTitle": "Quiz Component should restart the quiz after completion",
+              "timedOut": null,
+              "duration": 440,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "mount(/* @__PURE__ */ jsxDEV(Quiz, {}, void 0, false, {\n  fileName: \"C:/Users/Home/bootcamp/Projects/Peter-CI-CD-pipeline/cypress/component/Quiz.cy.jsx\",\n  lineNumber: 34,\n  columnNumber: 11\n}, this));\ncy.get(\"button\").contains(\"Start Quiz\").click();\ncy.get(\"button\").contains(\"1\").click();\ncy.get(\"button\").contains(\"Take New Quiz\").click();\ncy.get(\".card\").should(\"be.visible\");\ncy.get(\"h2\").should(\"not.be.empty\");",
+              "err": {},
+              "uuid": "04d64123-2054-41f0-9571-0b43eab63c64",
+              "parentUUID": "cf2ac7ca-53e4-439a-ba8f-9a698472d5f7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "da97f247-d1b5-4325-853d-f4f3aa1d5672",
+            "04d64123-2054-41f0-9571-0b43eab63c64"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 910,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

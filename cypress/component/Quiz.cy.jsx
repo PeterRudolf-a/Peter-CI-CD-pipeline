@@ -1,4 +1,4 @@
-import Quiz from "../../client/src/components/Quiz";
+import Quiz from "../../client/src/components/Quiz.tsx";
 import { mount } from 'cypress/react';
 
 describe('Quiz Component', () => {

@@ -8,6 +8,7 @@ This is an code that has been configured to use an CI/CD pipeline using GitHub A
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [GitHub Actions](#actions)
 - [Questions](#questions)
 
 ## Installation
@@ -17,6 +18,11 @@ To install, click the code button to clone the repository.
 
 ## Usage
 https://peter-ci-cd-pipeline.onrender.com
+
+## Actions
+![test check](https://github.com/user-attachments/assets/eca439dd-577a-41c8-a08b-ef9419218cee) 
+
+![deploy](https://github.com/user-attachments/assets/ad86cec3-e824-4101-88c7-99a6e556f511) 
 
 
 ## Questions
